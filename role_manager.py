@@ -28,7 +28,7 @@ async def on_message(message):
             else:
                 await message.channel.send("入力が間違っています")
 
-        elif message.content.split()[1] == 'remove': # removeコマンド
+        elif order[1] == 'remove': # removeコマンド
             role_ = discord.utils.get(message.guild.roles, name=order[2]) # order[2]のロールの情報を取得
             if role_ is not None:
                 await member.remove_roles(role_) # ロール削除
@@ -36,7 +36,7 @@ async def on_message(message):
             else:
                 await message.channel.send("入力が間違っています)
 
-        elif message.content.split()[1] == 'show': # showコマンド
+        elif order[1] == 'show': # showコマンド
             await message.channel.send(message.author.roles)
 		
         else:
